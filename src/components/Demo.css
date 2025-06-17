@@ -1,0 +1,202 @@
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  overflow: hidden;
+  position: relative;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-screen,
+.final-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.start-message,
+.final-message {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  animation: fadeIn 1s ease-in;
+}
+
+.start-message h1,
+.final-message h1 {
+  color: #e91e63;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.start-message p,
+.final-message p {
+  color: #666;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.start-btn,
+.play-again-btn {
+  background: linear-gradient(45deg, #e91e63, #f06292);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-btn:hover,
+.play-again-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+}
+
+.game-header {
+  padding: 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+.message-display {
+  padding: 1rem;
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: messageSlide 0.5s ease-in;
+  max-width: 80%;
+}
+
+.message.apology {
+  border-left: 5px solid #ff5722;
+  color: #d84315;
+}
+
+.message.love {
+  border-left: 5px solid #e91e63;
+  color: #c2185b;
+}
+
+.message.fun {
+  border-left: 5px solid #ff9800;
+  color: #f57c00;
+}
+
+.game-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  font-size: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+  animation: heartFloat 2s ease-in-out infinite;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px rgba(233, 30, 99, 0.6));
+}
+
+.heart:active {
+  transform: scale(0.9);
+}
+
+.instructions {
+  padding: 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  color: #e91e63;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heartFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .start-message,
+  .final-message {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .start-message h1,
+  .final-message h1 {
+    font-size: 1.5rem;
+  }
+
+  .message {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .heart {
+    font-size: 2rem;
+  }
+
+  .score {
+    font-size: 1.2rem;
+  }
+}
